@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Grid — Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <header>
+      <h1>Vice Grid</h1>
+      <p>Turn your photos and a caption into multi-panel poster cover art. Everything stays on your machine — photos are never uploaded.</p>
+    </header>
+
+    <label>Layout
+      <select id="layout"></select>
+    </label>
+
+    <label class="check"><input id="vice" type="checkbox" checked> Vice backdrop — retro sun &amp; palms</label>
+
+    <label>Sun size
+      <input id="vice-sun" type="range" min="0.5" max="1.8" step="0.01" value="1">
+    </label>
+
+    <label>Sun position
+      <select id="vice-pos"></select>
+    </label>
+
+    <div id="panel-controls" aria-label="Panel photos"></div>
+
+    <label class="check"><input id="one-photo" type="checkbox"> One photo across all panels</label>
+
+    <label>Zoom (selected panel)
+      <input id="zoom" type="range" min="1" max="3" step="0.01" value="1">
+    </label>
+    <p class="hint">Tip: drag directly on the cover to position a photo inside its panel.</p>
+
+    <label>Caption
+      <input id="caption" type="text" maxlength="42" value="Sunset Heist">
+    </label>
+
+    <label>Lettering
+      <select id="lettering"></select>
+    </label>
+
+    <label>Title size
+      <input id="caption-size" type="range" min="0.5" max="1.8" step="0.01" value="1">
+    </label>
+
+    <label>Letter spacing
+      <input id="caption-spacing" type="range" min="0" max="0.06" step="0.001" value="0.012">
+    </label>
+
+    <label>Title position
+      <select id="caption-pos">
+        <option value="bottom">Bottom band</option>
+        <option value="top">Top band</option>
+      </select>
+    </label>
+
+    <label>Colour grade
+      <select id="grade"></select>
+    </label>
+
+    <label>Panel gap
+      <input id="gap" type="range" min="0" max="0.05" step="0.001" value="0.012">
+    </label>
+
+    <label>Corner radius
+      <input id="radius" type="range" min="0" max="0.06" step="0.001" value="0.014">
+    </label>
+
+    <label>Panel border
+      <input id="border" type="range" min="0" max="1" step="0.05" value="0">
+    </label>
+
+    <label>Backdrop colour
+      <input id="backdrop" type="color" value="#140a24">
+    </label>
+
+    <label class="check"><input id="vignette" type="checkbox" checked> Vignette</label>
+    <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+
+    <label>Preview size
+      <select id="size"></select>
+    </label>
+
+    <div class="exports">
+      <button id="export-landscape" type="button">Export PNG 1920 × 1080</button>
+      <button id="export-square" type="button">Export PNG 1080 × 1080</button>
+      <button id="export-portrait" type="button">Export PNG 1080 × 1350</button>
+    </div>
+
+    <p id="status" role="status"></p>
+  </section>
+
+  <section class="stage" aria-label="Cover preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
